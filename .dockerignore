@@ -1,0 +1,30 @@
+# Ignore the target directory
+/target
+
+# Ignore Cargo.lock for local builds (optional, you can keep it if you want)
+# Cargo.lock
+
+# Ignore any Rust backup files
+*.rs.bk
+
+# Ignore local configuration files
+*.env
+
+# Ignore any IDE or editor specific files
+.idea
+.vscode
+*.swp
+*.swo
+
+# Ignore build artifacts and binaries
+*.bin
+*.o
+*.d
+
+# Ignore Git files
+.git
+.gitignore
+
+# Ignore logs and temporary files
+*.log
+tmp/

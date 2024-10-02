@@ -1,0 +1,13 @@
+[package]
+name = "bc_labs-assignment"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4.9.0"
+actix-multipart = "0.7.2"
+dotenv = "0.15.0"
+futures = "0.3.30"
+lazy_static = "1.5.0"
+sqlx = { version = "0.8.2", features = ["postgres", "runtime-tokio-rustls"] }
+tokio = { version = "1.40.0", features = ["full"] }

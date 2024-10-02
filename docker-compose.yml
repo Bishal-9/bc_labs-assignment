@@ -1,0 +1,30 @@
+services:
+  database:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: hero
+      POSTGRES_PASSWORD: zero
+      POSTGRES_DB: file_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  rust:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    container_name: bc_labs_service
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://hero:zero@database:5432/file_database
+    ports:
+      - "5000:5000"
+    command: ["cargo", "run"]
+
+volumes:
+  postgres_data:
